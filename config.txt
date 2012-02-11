@@ -1,0 +1,22 @@
+<virtualhost *:80>
+DocumentRoot /web/site.local/www
+
+ServerName site.local
+ServerAlias www.site.local
+ServerAdmin webmaster@site.local
+
+ErrorLog /web/site.local/log/apache_error.log
+CustomLog /web/site.local/log/apache_access.log common
+
+<directory /web/site.local/www>
+Options FollowSymLinks
+Options +Indexes
+AllowOverride All
+Order allow,deny
+Allow from all
+</directory>
+
+php_admin_value upload_tmp_dir /web/site.local/tmp
+php_admin_value error_log /web/site.local/log/php.log
+php_admin_value session.save_path /web/site.local/sess
+</virtualhost>
